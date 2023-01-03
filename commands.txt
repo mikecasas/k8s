@@ -1,0 +1,42 @@
+
+
+kubectl config get-contexts
+kubectl config use-context docker-desktop
+
+
+
+
+
+
+kubectl create deployment onenoteweb --image=mkcsas/onenoteweb:v1
+
+
+#check to see if the pods are running
+
+kubectl get pod
+
+
+
+
+#port-forward the port
+kubectl port-forward onenoteweb-5866b5888-76djc 8081:6464
+
+
+
+
+#https://raw.githubusercontent.com/mikecasas/k8s/master/backend-deployment.yaml
+#Step 1
+kubectl apply -f https://raw.githubusercontent.com/mikecasas/k8s/master/backend-deployment.yaml
+
+
+To View it
+
+kubectl describe deployment backend
+
+#Step 2
+kubectl apply -f https://raw.githubusercontent.com/mikecasas/k8s/master/backend-service.yaml
+#Step 3
+kubectl apply -f https://raw.githubusercontent.com/mikecasas/k8s/master/frontend-deployment.yaml
+#Step 4
+kubectl apply -f https://raw.githubusercontent.com/mikecasas/k8s/master/frontend-service.yaml
+

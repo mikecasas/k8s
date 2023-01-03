@@ -1,45 +1,21 @@
----
-
 apiVersion: apps/v1
-
 kind: Deployment
-
 metadata:
-
   name: frontend
-
 spec:
-
   selector:
-
     matchLabels:
-
       app: hello
-
       tier: frontend
-
       track: stable
-
   replicas: 1
-
   template:
-
     metadata:
-
       labels:
-
         app: hello
-
         tier: frontend
-
         track: stable
-
     spec:
-
       containers:
-
         - name: nginx
-
           image: "mkcsas/onenoteweb:v1"          
-
-...
